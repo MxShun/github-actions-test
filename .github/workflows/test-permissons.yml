@@ -8,17 +8,17 @@ jobs:
   no-permissions:
     runs-on: ubuntu-latest
     steps:
-      - name: gh repo view
+      - name: gh issue create
         run: |
-          gh repo view $GITHUB_REPOSITORY
+          gh issue create no-permissions-`date -d '9 hours' +'%Y-%m-%d %H:%M:%S'`-label
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   read-permissions:
     runs-on: ubuntu-latest
     permissions: read-all
     steps:
-      - name: gh repo view
+      - name: gh issue create
         run: |
-          gh repo view $GITHUB_REPOSITORY
+          gh issue create read-permissions-`date -d '9 hours' +'%Y-%m-%d %H:%M:%S'`-label
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
