@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: gh issue create
         run: |
-          gh issue create no-permissions-`date -d '9 hours' +'%Y-%m-%d%H:%M:%S'`-label
+          gh issue create --title "no-permissions-`date -d '9 hours' +'%Y-%m-%d%H:%M:%S'`-label"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   read-permissions:
@@ -19,6 +19,6 @@ jobs:
     steps:
       - name: gh issue create
         run: |
-          gh issue create read-permissions-`date -d '9 hours' +'%Y-%m-%d%H:%M:%S'`-label
+          gh issue create --title "read-permissions-`date -d '9 hours' +'%Y-%m-%d%H:%M:%S'`-label"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
