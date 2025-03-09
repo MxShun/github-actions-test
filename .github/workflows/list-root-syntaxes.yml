@@ -13,7 +13,7 @@ permissions:
   checks: read # or white or none
   contents: read # or white or none
   deployments: read # or white or none
-  id-token: read # or white or none
+  id-token: none # or white
   issues: read # or white or none
   discussions: read # or white or none
   packages: read # or white or none
