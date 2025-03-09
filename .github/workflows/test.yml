@@ -69,7 +69,8 @@ jobs:
   print-default-environment-variables:
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: Print default environment variables
+        run: |
           echo "CI: $CI"
           echo "GITHUB_ACTION: $GITHUB_ACTION"
           echo "GITHUB_ACTION_PATH: $GITHUB_ACTION_PATH"
