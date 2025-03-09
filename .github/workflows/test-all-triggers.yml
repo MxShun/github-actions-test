@@ -61,7 +61,7 @@ on:
   workflow_call: # workflow_call は、別のワークフローからワークフローを呼び出すことができることを示す
   workflow_dispatch: # ワークフローを手動でトリガー
   workflow_run: # ワークフローの実行が要求されたか完了したとき
-    workflows: [Hello World]
+    workflows: [Print default environment variables]
     types: [completed, requested, in_progress]
 
 jobs:
