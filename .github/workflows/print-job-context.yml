@@ -1,0 +1,16 @@
+name: Print job context
+
+on: workflow_dispatch
+
+jobs:
+  # https://docs.github.com/ja/actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs#job-context
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print job context
+        run: |
+          echo "job.container: ${{ job.container }}"
+          echo "job.container.id: ${{ job.container.id }}"
+          echo "job.container.network: ${{ job.container.network }}"
+          echo "job.services: ${{ job.services }}"
+          echo "job.status: ${{ job.status }}"
