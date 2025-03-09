@@ -1,0 +1,32 @@
+name: List job syntaxes
+
+on: workflow_dispatch
+
+jobs:
+  configure:
+    name: Configure a name
+    permissions: {}
+    if: ${{ github.actor == github.repository_owner }}
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.step1.outputs.name }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: .
+    steps:
+      - id: step1
+        run: echo "name=World" >> "$GITHUB_OUTPUT"
+  greet:
+    name: Greet to the name
+    needs: configure
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    env:
+      GREET: Hello
+    steps:
+      - uses: actions/checkout@v4
+      - name: Greet
+        run: echo "$GREET ${{ needs.job1.outputs.name }}"

@@ -1,0 +1,24 @@
+name: Test permissions
+
+on: workflow_dispatch
+
+permissions: {}
+
+jobs:
+  no-permissions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: gh repo view
+        run: |
+          gh repo view $GITHUB_REPOSITORY
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  read-permissions:
+    runs-on: ubuntu-latest
+    permissions: read-all
+    steps:
+      - name: gh repo view
+        run: |
+          gh repo view $GITHUB_REPOSITORY
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

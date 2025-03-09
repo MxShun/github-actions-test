@@ -1,0 +1,45 @@
+name: List root syntaxes
+
+# ワークフローから生成されたワークフロー実行の名前
+run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
+
+on: workflow_dispatch
+
+# GITHUB_TOKEN に付与された既定のアクセス許可を変更し、必要に応じてアクセスを追加または削除することで、必要最小限のアクセスのみを許可することができます
+# https://docs.github.com/ja/actions/writing-workflows/workflow-syntax-for-github-actions#permissions
+permissions:
+  actions: read # or white or none
+  attestations: read # or white or none
+  checks: read # or white or none
+  contents: read # or white or none
+  deployments: read # or white or none
+  id-token: read # or white or none
+  issues: read # or white or none
+  discussions: read # or white or none
+  packages: read # or white or none
+  pages: read # or white or none
+  pull-requests: read # or white or none
+  repository-projects: read # or white or none
+  security-events: read # or white or none
+  statuses: read # or white or none
+
+# ワークフロー中のすべてのジョブのステップで使うことができる変数の map
+env:
+  MY_NAME: MxShun
+
+defaults:
+  run:
+    shell: bash
+    working-directory: .
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello World
+        run: |
+          echo "Hello World"
