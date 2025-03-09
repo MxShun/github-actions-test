@@ -1,0 +1,71 @@
+name: GitHub Actions Test
+
+# https://docs.github.com/ja/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
+on:
+  branch_protection_rule: # ワークフロー リポジトリ内のブランチ保護ルールが変更されたとき
+    types: [created, deleted, edited]
+  check_run: # チェック実行に関連するアクティビティが発生したとき
+    types: [created, rerequested, completed, requested_action]
+  check_suite: # チェック スイートのアクティビティが発生したとき
+    types: [completed]
+  create: # 誰かがワークフローのリポジトリに Git 参照 (Git ブランチまたはタグ) を作成したとき
+  delete: # 誰かがワークフローのリポジトリで Git 参照 (Git ブランチまたはタグ) を削除したとき
+  deployment: # 誰かがワークフローのリポジトリにデプロイを作成したとき
+  deployment_status: # サード パーティによってデプロイの状態が提供されたとき
+  discussion: # ワークフローのリポジトリ内のディスカッションが作成または変更されたとき
+    types: [created, edited, deleted, transferred, pinned, unpinned, labeled, unlabeled, locked, unlocked, category_changed, answered, unanswered]
+  discussion_comment: # ワークフローのリポジトリ内のディスカッションのコメントが作成または変更されたとき
+    types: [created, edited, deleted]
+  fork: # 誰かがリポジトリをフォークしたとき
+  gollum: # 誰かが Wiki ページを作成または更新したとき
+  issue_comment: # issue または pull request のコメントが作成、編集、または削除されたとき
+    types: [created, edited, deleted]
+  issues: # ワークフローのリポジトリ内の issue が作成または変更されたとき
+    types: [opened, edited, deleted, transferred, pinned, unpinned, closed, reopened, assigned, unassigned, labeled, unlabeled, locked, unlocked, milestoned, demilestoned]
+  label: # ワークフローのリポジトリ内のラベルが作成または変更されたとき
+    types: [created, edited, deleted]
+  merge_group: # マージ キューに pull request が追加されたとき
+    types: [checks_requested]
+  milestone: # ワークフローのリポジトリ内のマイルストーンが作成または変更されたとき
+    types: [created, closed, opened, edited, deleted]
+  page_build: # リポジトリに対して GitHub Pages が有効になっている場合、GitHub Pages の公開元であるブランチに誰かがプッシュしたとき
+  public: # ワークフローのリポジトリがプライベートからパブリックに変更されたとき
+  pull_request: # ワークフローのリポジトリ内の pull request のアクティビティが発生したとき
+    types: [assigned, unassigned, labeled, unlabeled, opened, edited, closed, reopened, synchronize, converted_to_draft, locked, unlocked, enqueued, dequeued, milestoned, demilestoned, ready_for_review, review_requested, review_request_removed, auto_merge_enabled, auto_merge_disabled]
+  pull_request_review: # pull request レビューが送信、編集、または無視されたとき
+    types: [submitted, edited, dismissed]
+  pull_request_review_comment: # pull request レビュー コメントが変更されたとき
+    types: [created, edited, deleted]
+  pull_request_target: # ワークフローのリポジトリ内の pull request のアクティビティが発生したとき
+    types: [assigned, unassigned, labeled, unlabeled, opened, edited, closed, reopened, synchronize, converted_to_draft, ready_for_review, locked, unlocked, review_requested, review_request_removed, auto_merge_enabled, auto_merge_disabled]
+  push: # コミットまたはタグをプッシュするとき、またはテンプレートからリポジトリを作成するとき
+  registry_package: # GitHub Packages に関連するアクティビティがリポジトリで発生したとき
+    types: [published, updated]
+  release: # リポジトリのリリース アクティビティが発生したとき
+    types: [published, unpublished, created, edited, deleted, prereleased, released]
+  repository_dispatch: # GitHub の外部で発生したアクティビティに対してワークフローをトリガー
+    types: [custom_event_type]
+  schedule: # スケジュールした時刻にワークフローをトリガー
+    #        ┌───────────── minute (0 - 59)
+    #        │ ┌───────────── hour (0 - 23)
+    #        │ │ ┌───────────── day of the month (1 - 31)
+    #        │ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+    #        │ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+    #        │ │ │ │ │
+    #        │ │ │ │ │
+    #        │ │ │ │ │
+    - cron: '0 0 1 1 *'
+  status: # Git コミットの状態が変更されたとき
+  watch: # ワークフローのリポジトリが Star 付きになったとき
+    types: [started]
+  workflow_call: # workflow_call は、別のワークフローからワークフローを呼び出すことができることを示す
+  workflow_dispatch: # ワークフローを手動でトリガー
+  workflow_run: # ワークフローの実行が要求されたか完了したとき
+    types: [completed, requested, in_progress]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "test"
