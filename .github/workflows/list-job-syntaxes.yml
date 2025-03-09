@@ -29,4 +29,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Greet
-        run: echo "$GREET ${{ needs.job1.outputs.name }}"
+        run: echo "$GREET ${{ needs.configure.outputs.name }}"
