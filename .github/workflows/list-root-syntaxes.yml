@@ -1,7 +1,7 @@
 name: List root syntaxes
 
 # ワークフローから生成されたワークフロー実行の名前
-run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
+run-name: List root syntaxes by @${{ github.actor }}
 
 on: workflow_dispatch
 
