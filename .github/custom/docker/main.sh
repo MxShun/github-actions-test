@@ -1,3 +1,4 @@
+#!/bin/sh -l
 echo 'Main'
 
-echo '$GREET $@'
+echo '$GREET $@' >> '${GITHUB_OUTPUT}'
