@@ -1,0 +1,3 @@
+echo 'Main'
+
+echo '$GREET $@'

@@ -1,0 +1,28 @@
+name: List root syntaxes
+
+author: MxShun
+
+description: List root syntaxes
+  
+inputs:
+  your-name:
+    description: 'Your name'
+    required: false
+    default: 'World'
+    deprecationMessage: 'This input is deprecated.'
+
+outputs:
+  greeting:
+    description: 'Greeting'
+
+runs:
+  using: 'node20'
+  pre: 'setup.js'
+  pre-if: runner.os == 'linux'
+  main: 'index.js'
+  post: 'cleanup.js'
+  post-if: runner.os == 'linux'
+
+branding:
+  icon: 'navigation' # https://feathericons.com/
+  color: 'yellow'

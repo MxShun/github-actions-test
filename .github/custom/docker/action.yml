@@ -1,0 +1,31 @@
+name: List root syntaxes
+
+author: MxShun
+
+description: List root syntaxes
+  
+inputs:
+  your-name:
+    description: 'Your name'
+    required: false
+    default: 'World'
+    deprecationMessage: 'This input is deprecated.'
+
+outputs:
+  greeting:
+    description: 'Greeting'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - 'World'
+  env:
+    GREET: 'Hello'
+  pre-entrypoint: 'setup.sh'
+  entrypoint: 'main.sh'
+  post-entrypoint: 'cleanup.sh'
+
+branding:
+  icon: 'cloud' # https://feathericons.com/
+  color: 'gray-dark'

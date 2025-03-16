@@ -1,0 +1,19 @@
+name: Test custom actions
+
+on: workflow_dispatch
+
+jobs:
+  custom-composite:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/custom/composite
+
+  custom-docker:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/custom/docker
+
+  custom-javascript:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/custom/javascript

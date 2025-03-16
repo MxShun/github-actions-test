@@ -1,0 +1,34 @@
+name: List root syntaxes
+
+author: MxShun
+
+description: List root syntaxes
+  
+inputs:
+  your-name:
+    description: 'Your name'
+    required: false
+    default: 'World'
+    deprecationMessage: 'This input is deprecated.'
+
+outputs:
+  greeting:
+    description: 'Greeting'
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+
+runs:
+  using: "composite"
+  steps:
+    - id: greeting
+      name: Greeting
+      if: ${{ runner.os == 'linux' }}
+      shell: bash
+      working-directory: .
+      env:
+        GREET: 'Hello'
+      run: echo "$GREET ${{ inputs.your-name }}!"
+      continue-on-error: true
+
+branding:
+  icon: 'terminal' # https://feathericons.com/
+  color: 'green'
