@@ -6,14 +6,17 @@ jobs:
   custom-composite:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
     - uses: ./.github/custom/composite
 
   custom-docker:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
     - uses: ./.github/custom/docker
 
   custom-javascript:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
     - uses: ./.github/custom/javascript
