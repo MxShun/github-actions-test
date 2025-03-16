@@ -17,10 +17,10 @@ outputs:
 
 runs:
   using: 'node20'
-  pre: 'setup.js'
+  pre: './.github/custom/javascript/setup.js'
   pre-if: runner.os == 'linux'
-  main: 'index.js'
-  post: 'cleanup.js'
+  main: './.github/custom/javascript/index.js'
+  post: './.github/custom/javascript/cleanup.js'
   post-if: runner.os == 'linux'
 
 branding:

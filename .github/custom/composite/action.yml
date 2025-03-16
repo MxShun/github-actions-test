@@ -26,7 +26,7 @@ runs:
       working-directory: .
       env:
         GREET: 'Hello'
-      run: echo "$GREET ${{ inputs.your-name }}!"
+      run: echo "$GREET ${{ inputs.your-name }}"
       continue-on-error: true
 
 branding:
