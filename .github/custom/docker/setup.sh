@@ -1,2 +1,2 @@
-#!/bin/sh -l
-echo 'Setup'
+#!/bin/bash
+echo "Setup"

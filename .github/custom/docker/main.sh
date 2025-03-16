@@ -1,4 +1,5 @@
-#!/bin/sh -l
-echo 'Main'
+#!/bin/bash
+echo "Main"
 
-echo 'greeting=$(echo $GREET $@)' >> '${GITHUB_OUTPUT}'
+greeting="${GREET} $@"
+echo "greeting=${greeting}" >> "${GITHUB_OUTPUT}"
