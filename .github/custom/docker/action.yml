@@ -1,8 +1,8 @@
-name: List root syntaxes
+name: Custom docker action
 
 author: MxShun
 
-description: List root syntaxes
+description: Custom docker action
   
 inputs:
   your-name:

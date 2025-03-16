@@ -1,8 +1,8 @@
-name: List root syntaxes
+name: Custom composite action
 
 author: MxShun
 
-description: List root syntaxes
+description: Custom composite action
   
 inputs:
   your-name:

@@ -1,8 +1,8 @@
-name: List root syntaxes
+name: Custom javascript action
 
 author: MxShun
 
-description: List root syntaxes
+description: Custom javascript action
   
 inputs:
   your-name:
@@ -17,10 +17,10 @@ outputs:
 
 runs:
   using: 'node20'
-  pre: './.github/custom/javascript/setup.js'
+  pre: 'setup.js'
   pre-if: runner.os == 'linux'
-  main: './.github/custom/javascript/index.js'
-  post: './.github/custom/javascript/cleanup.js'
+  main: 'index.js'
+  post: 'cleanup.js'
   post-if: runner.os == 'linux'
 
 branding:
