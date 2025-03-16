@@ -7,16 +7,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: ./.github/custom/composite
+    - id: custom-action
+      uses: ./.github/custom/composite
+    - run: echo ${{ steps.custom-action.outputs.greeting }}
 
   custom-docker:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: ./.github/custom/docker
+    - id: custom-action
+      uses: ./.github/custom/docker
+    - run: echo ${{ steps.custom-action.outputs.greeting }}
 
   custom-javascript:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: ./.github/custom/javascript
+    - id: custom-action
+      uses: ./.github/custom/javascript
+    - run: echo ${{ steps.custom-action.outputs.greeting }}

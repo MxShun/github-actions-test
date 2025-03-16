@@ -17,7 +17,7 @@ outputs:
 
 runs:
   using: 'node20'
-  pre: 'setup.js'
+  pre: 'setup.js' # ローカル アクションではサポートされていません。
   pre-if: runner.os == 'linux'
   main: 'index.js'
   post: 'cleanup.js'

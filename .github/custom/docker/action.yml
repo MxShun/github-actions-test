@@ -22,9 +22,9 @@ runs:
     - 'World'
   env:
     GREET: 'Hello'
-  pre-entrypoint: './.github/custom/docker/setup.sh'
-  entrypoint: './.github/custom/docker/main.sh'
-  post-entrypoint: './.github/custom/docker/cleanup.sh'
+  pre-entrypoint: 'setup.sh' # ローカル アクションではサポートされていません。
+  entrypoint: 'main.sh'
+  post-entrypoint: 'cleanup.sh'
 
 branding:
   icon: 'cloud' # https://feathericons.com/

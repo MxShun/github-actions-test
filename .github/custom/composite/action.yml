@@ -14,7 +14,7 @@ inputs:
 outputs:
   greeting:
     description: 'Greeting'
-    value: ${{ steps.random-number-generator.outputs.random-id }}
+    value: ${{ steps.greeting.outputs.greeting }}
 
 runs:
   using: "composite"
@@ -26,7 +26,7 @@ runs:
       working-directory: .
       env:
         GREET: 'Hello'
-      run: echo "$GREET ${{ inputs.your-name }}"
+      run: echo "greeting=$(echo "$GREET ${{ inputs.your-name }}" >> $GITHUB_OUTPUT
       continue-on-error: true
 
 branding:
